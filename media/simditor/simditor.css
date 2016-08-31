@@ -749,7 +749,13 @@
 }
 
 
+/*自定义编辑器样式*/
 .simditor-body > p {
   margin: 0!important;
   padding: 0 40px 10px 10px!important ;
+}
+
+.simditor-placeholder {
+  padding: 7px 40px 10px 20px!important;
+  font-size: 14px !important;
 }
