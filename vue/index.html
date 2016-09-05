@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>vue</title>
-  </head>
-  <body>
-    <app></app>
-    <!-- built files will be auto injected -->
-  </body>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello App!</h1>
+        <p>
+            <a v-link="{ path: '/foo'}">go to foo</a>
+            <a v-link="{ path: '/bar'}">go to bar</a>
+        </p>
+        <router-view></router-view>
+    </div>
+</body>
 </html>
