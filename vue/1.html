@@ -4,16 +4,41 @@
     <meta charset="UTF-8">
     <script src="https://cdn.bootcss.com/vue/1.0.26/vue.js"></script>
     <title>Document</title>
-</head>
-<body>
-    <p v-show="display" id="el">11111111111</p>
-    <script type="text/javascript">
-    var vm = new Vue({
-        el: '#el',
-        data: {
-            display: 0
+    <style type="text/css">
+        .expand-transition {
+          transition: all .3s ease;
+          height: 30px;
+          padding: 10px;
+          background-color: #eee;
+          overflow: hidden;
+          background-color: red;
         }
-    })
+
+        /* .expand-enter 定义进入的开始状态 */
+        /* .expand-leave 定义离开的结束状态 */
+        .expand-enter, .expand-leave {
+          height: 0;
+          padding: 0 10px;
+          opacity: 0;
+        }
+    </style>
+</head>
+<body id="app">
+    <div v-show="show" transition="expand">hello</div>
+    <ul>
+        <li>django</li>
+        <li>django</li>
+        <li>django</li>
+        <li>django</li>
+        <li>django</li>
+    </ul>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            }
+        })
     </script>
 </body>
 </html>

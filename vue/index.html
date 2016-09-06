@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="Shortcut Icon" href="../static/img/cat.ico" type="image/x-icon">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <title>临渊羡鱼 不如退而结网</title>
 </head>
 <body>
@@ -29,23 +28,20 @@
             <img src="./src/assets/img/logo.png">
             <a id="nav-btn" v-on:click="slideToggle"><i class="fa fa-navicon fa-lg"></i></a>
         </div>
-        <div>
-            <ul id="list">
-                <li v-show="display" v-bind:class="{ 'active': display }"><a href="javascript:void(0);">首页</a></li>
-                <li v-show="display" v-bind:class="{ 'active': display }"><a href="javascript:void(0);">归档</a></li>
-                <li v-show="display" v-bind:class="{ 'active': display }"><a href="javascript:void(0);">标签</a></li>
-                <li v-show="display" v-bind:class="{ 'active': display }"><a href="javascript:void(0);">搜索</a></li>
-            </ul>
-        </div>
+        <ul id="list" v-show="display" transition="expand">
+            <li><a href="javascript:void(0);">首页</a></li>
+            <li><a href="javascript:void(0);">归档</a></li>
+            <li><a href="javascript:void(0);">标签</a></li>
+            <li><a href="javascript:void(0);">搜索</a></li>
+        </ul>
     </div>
     <div id="app">
         <h1>Hello App!</h1>
-        <p>
+        <div>
             <a v-link="{ path: '/foo'}">go to foo</a>
             <a v-link="{ path: '/bar'}">go to bar</a>
-        </p>
+        </div>
         <router-view></router-view>
     </div>
-    <p v-show="false">111111111</p>
 </body>
 </html>

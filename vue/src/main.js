@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import 'assets/css/base.css'
 import 'assets/javascript/base.js'
+import 'assets/font-awesome-4.6.3/css/font-awesome.min.css'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
@@ -31,12 +32,3 @@ router.map({
 })
 
 router.start(App,'#app')
-
-// var vm = new Vue({
-//     el : '#list',
-//     methods: {
-//         foo: function(){
-//             alert(111)
-//         }
-//     }
-// })

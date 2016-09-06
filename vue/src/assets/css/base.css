@@ -90,6 +90,7 @@ ul,ol {
 
 .mobile-bar {
     position: fixed;
+    display: none;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -97,7 +98,6 @@ ul,ol {
     background-color: #fff;
     box-shadow: 0 0 4px rgba(0,0,0,0.25);
     z-index: 2;
-    display: none;
 }
 
 .mobile-bar > img , .mobile-bar > a {
@@ -120,105 +120,55 @@ ul,ol {
     cursor: pointer;
 }
 
+
 /*移动端nav-bar*/
-/*.nav-bar {
+.expand-transition {
+    position: relative;
+    top: 40px;
+    left: 0;
+    height: 1.6rem;  
     width: 100%;
-    height: 0px;
-    margin-top: 0px;
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-    display: block; 
+    text-indent: 0.15rem;
     background-color: rgba(0,0,0,.2);
-}
-
-.nav-bar ul {
-    text-indent: 0.1rem;
-}
-
-.nav-bar li {
     -moz-transition: all 1s ease;
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
-    opacity: 1;
-    height: 40px;
+} 
+
+.expand-transition > li {
+    width: 100%;
+    height: 0.4rem;
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
-.nav-bar > ul > li >a {
+.expand-transition > li > a {
     height: 100%;
     display: block;
-    line-height: 40px;
-    width: 100%;
-}*/
-
-#list {
-    position: relative;
-    top: 41px;
-    left: 0;
-    width: 100%;
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-/*    opacity: 0;
-    height: 0px;*/
-
-}
-
-/*.slide-transition {
-    position: relative;
-    top: 41px;
-    left: 0;
-    width: 100%;
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-    opacity: 1;
-    height: 160px;
-}
-*/
-/*.slide-enter {
-    height: 160px;
+    line-height: 0.4rem;
     opacity: 1;
 }
 
-.slide-leave {
-    height: 160px;
-    opacity: 1;
-}*/
-
-.active {
-    opacity: 1 !important;
-    height: 40px !important;
+.expand-enter , .expand-leave{
+    height: 0px;
 }
 
-#list li {
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-    width: 100%;
+.expand-enter > li , .expand-leave > li{
     height: 0px;
     opacity: 0;
-    background-color: rgba(0,0,0,.2);
 }
 
-#list li a {
-    height: 100%;
-    line-height: 40px;
-    display: block;
-}
-
-
-#list li a:hover {
+#list > li > a:hover {
     background-color: #9E9898;
 }
 
+
+/* 媒体查询 */
 @media screen and (min-width: 720px){
-    .nav-bar {
+    #nav-bar {
         display: none;
     }
 }
@@ -232,7 +182,7 @@ ul,ol {
         display: none;
     }
 
-    .nav-bar {
+    #nav-bar {
         display: block;
     }
 
