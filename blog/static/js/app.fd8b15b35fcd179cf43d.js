@@ -1,0 +1,2 @@
+webpackJsonp([2,0],[function(e,t,a){"use strict";function u(e){return e&&e.__esModule?e:{"default":e}}var n=a(3),d=u(n),f=a(1),p=u(f),l=a(2),o=u(l);d["default"].use(o["default"]),d["default"].use(p["default"]);var s=d["default"].extend({template:"<p>this is foo!</p>"}),r=d["default"].extend({template:"<p>this is bar!</p>"}),i=d["default"].extend({}),c=new p["default"];c.map({"/foo":{component:s},"/bar":{component:r}}),c.start(i,"#app")}]);
+//# sourceMappingURL=app.fd8b15b35fcd179cf43d.js.map
