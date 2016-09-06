@@ -1,10 +1,11 @@
 import Vue from 'vue'
-// import App from './App'
-// import Hello from './components/Hello'
-
+import 'assets/css/base.css'
+import 'assets/javascript/base.js'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
+
+// vue 注册插件
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
@@ -30,3 +31,12 @@ router.map({
 })
 
 router.start(App,'#app')
+
+// var vm = new Vue({
+//     el : '#list',
+//     methods: {
+//         foo: function(){
+//             alert(111)
+//         }
+//     }
+// })
