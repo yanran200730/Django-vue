@@ -7,7 +7,7 @@
     <link rel="Shortcut Icon" href="../static/img/cat.ico" type="image/x-icon">
     <title>临渊羡鱼 不如退而结网</title>
 </head>
-<body>
+<body id="myapp">
     <div class="header">
         <div class="logo">
             <img src="./src/assets/img/logo.png">
@@ -18,7 +18,7 @@
                 <li><a href="javascript:void(0);">首页</a></li>
                 <li><a href="javascript:void(0);">归档</a></li>
                 <li><a href="javascript:void(0);">标签</a></li>
-                <li><a href="javascript:void(0);">搜索</a></li>
+                <li><a href="javascript:void(0);" v-on:click="searchToggle">搜索</a></li>
             </ul>
         </div>
     </div>
@@ -26,14 +26,32 @@
     <div id="nav-bar">
         <div class="mobile-bar">
             <img src="./src/assets/img/logo.png">
-            <a id="nav-btn" v-on:click="slideToggle"><i class="fa fa-navicon fa-lg"></i></a>
+            <a id="nav-btn" v-touch:tap="slideToggle"><i class="fa fa-navicon fa-lg"></i></a>
         </div>
-        <ul id="list" v-show="display" transition="expand">
+        <ul id="list" v-show="display" transition="dropDown">
             <li><a href="javascript:void(0);">首页</a></li>
             <li><a href="javascript:void(0);">归档</a></li>
             <li><a href="javascript:void(0);">标签</a></li>
-            <li><a href="javascript:void(0);">搜索</a></li>
+            <li><a href="javascript:void(0);"  v-touch:tap="searchToggle">搜索</a></li>
         </ul>
+    </div>
+    <!-- search -->
+    <div class="search-wrap" v-show="search" transition="search" style="display:none">
+        <div class="search">
+            <div class="icon">
+                <a href="javascript:void(0);"><i class="fa fa-search"></i></a>
+            </div>
+            <div class="search-content">
+                <input  class="search-keyword" type="text" placeholder="请输入关键字" autofocus="autofocus">
+            </div>
+        </div>
+        <div class="content">
+            <div class="search-infor"></div>
+            <div class="search-list"></div>
+        </div>
+        <span class="close-btn" v-touch:tap="searchToggle">
+            <i class="fa fa-times-circle"></i>
+        </span>
     </div>
     <div id="app">
         <h1>Hello App!</h1>
@@ -43,5 +61,6 @@
         </div>
         <router-view></router-view>
     </div>
+    <div class="wrap" v-show="search" v-on:click="searchToggle" style="display:none"></div>
 </body>
 </html>
