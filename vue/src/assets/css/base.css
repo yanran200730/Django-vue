@@ -113,10 +113,13 @@ ul,ol {
 }
 
 .mobile-bar a {
+    width: 0.25rem;
+    height: 0.25rem;
     right: 0.15rem;
 }
 
 .mobile-bar a i {
+    font-size: 0.25rem; 
     cursor: pointer;
 }
 
@@ -203,6 +206,10 @@ ul,ol {
         border-top-left-radius: 0px !important;
         border-top-right-radius: 0px !important;
     }
+
+    .search-content {
+        width: 70% !important;
+    }
 }
 
 /*search*/
@@ -250,6 +257,8 @@ ul,ol {
     height: 23px;
     padding: 5px 0 5px 20px;
     outline: none;
+    -webkit-appearance: none; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     border: none;
     background: transparent;
     font-size: 17px;
@@ -259,11 +268,10 @@ ul,ol {
 
 .close-btn {
     position: absolute;
-    top: 15px;
+    top: 13px;
     right: 15px;
-    margin-left: 40px;
     color: #999;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -286,18 +294,18 @@ ul,ol {
     -webkit-transition: all 5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease-in-out;
-    -moz-transition: scale3d(1,1,1);
-    -webkit-transition: scale3d(1,1,1);
-    -o-transition: scale3d(1,1,1);
-    transform: scale3d(1,1,1);
+    -moz-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    -o-transform: scale(1,1);
+    transform: scale(1,1);
 }
 
 .search-enter, .search-leave {
     opacity: 0;
-    -moz-transition: scale3d(0,0,0);
-    -webkit-transition: scale3d(0,0,0);
-    -o-transition: scale3d(0,0,0);
-    transform: scale3d(0,0,0);
+    -moz-transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+    -o-transform: scale(0,0);
+    transform: scale(0,0);
 }
 
 /*遮罩层*/

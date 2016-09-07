@@ -7,8 +7,6 @@ import 'assets/css/base.css'
 import 'assets/javascript/base.js'
 import 'assets/font-awesome-4.6.3/css/font-awesome.min.css'
 
-
-
 // vue 注册插件
 Vue.use(VueTouch)
 Vue.use(VueResource)
