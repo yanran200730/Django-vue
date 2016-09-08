@@ -12,6 +12,8 @@ Vue.use(VueTouch)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
+document.body.addEventListener('touchstart', function(){ });
+
 var foo = Vue.extend({
     template: '<p>this is foo!</p>'
 })
@@ -24,13 +26,13 @@ var App = Vue.extend({})
 
 var router = new VueRouter()
 
-router.map({
-    '/foo':{
-        component: foo
-    },
-    '/bar': {
-        component: bar
-    }
-})
+// router.map({
+//     '/foo':{
+//         component: foo
+//     },
+//     '/bar': {
+//         component: bar
+//     }
+// })
 
 router.start(App,'#app')

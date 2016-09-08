@@ -12,13 +12,16 @@ var vm = new Vue({
         slideToggle: function(event){
             this.display = !this.display;
             event.preventDefault();
-
         },
 
         searchToggle: function(event){
-            this.search = !this.search;
+            //防止wrap层未消失时多次点击
+            if (event.target.tagName === "DIV"){
+                this.search = false;               
+            }else {
+                this.search = !this.search;
+            }
             event.preventDefault();
-
         }
     }
 })

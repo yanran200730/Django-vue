@@ -28,7 +28,7 @@
             <img src="./src/assets/img/logo.png">
             <a id="nav-btn" v-touch:tap="slideToggle"><i class="fa fa-navicon fa-lg"></i></a>
         </div>
-        <ul id="list" v-show="display" transition="dropDown">
+        <ul id="list" v-show="display" transition="dropDown" style="display: none">
             <li><a href="javascript:void(0);">首页</a></li>
             <li><a href="javascript:void(0);">归档</a></li>
             <li><a href="javascript:void(0);">标签</a></li>
@@ -53,14 +53,66 @@
             <i class="fa fa-times-circle"></i>
         </span>
     </div>
-    <div id="app">
-        <h1>Hello App!</h1>
-        <div>
-            <a v-link="{ path: '/foo'}">go to foo</a>
-            <a v-link="{ path: '/bar'}">go to bar</a>
+    <div class="section clearfix">
+
+        <div class="body">
+            <img src="./src/assets/img/index.jpg">
+            <div class="view">
+                <router-view>111</router-view>
+            </div>
         </div>
-        <router-view></router-view>
+        <div class="aside">
+            <div class="profile">
+                <div class="short-about">
+                    <img src="./src/assets/img/me.jpg">
+                    <h3>Yan ran</h3>
+                    <p>临渊羡鱼 不如退而结网</p>
+                </div>
+                <div class="socially">
+                    <a href="javascript:void(0);" target="_blink">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="javascript:void(0);" target="_blink">
+                            <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="https://github.com/yanran200730" target="_blink">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="http://yanran520.cc" target="_blink">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-edge fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="interest">
+                <a href="javascript:void(0);">CSS</a>
+                <a href="javascript:void(0);">HTML</a>
+                <a href="javascript:void(0);">JavaScript</a>
+                <a href="javascript:void(0);">Python</a>
+                <a href="javascript:void(0);">Django</a>
+                <a href="javascript:void(0);">Music</a>
+                <a href="javascript:void(0);">Vue.js</a>
+            </div>
+            <div class="link">
+                <h3>友链</h3>
+                <a href="http://yanran520.cc" target="_blink">calvin blog</a>
+            </div>
+        </div>       
     </div>
-    <div class="wrap" v-show="search" v-on:click="searchToggle" style="display:none"></div>
+    <div class="footer">
+        <div></div>
+    </div>
+    <div class="wrap" v-show="search" v-on:click="searchToggle" style="display:none" transition="wrap"></div>
 </body>
 </html>
