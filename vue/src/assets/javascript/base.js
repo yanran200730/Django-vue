@@ -13,7 +13,10 @@ var vm = new Vue({
             this.display = !this.display;
             event.preventDefault();
         },
-
+        slideClose: function(event){
+            this.display = false;
+            event.preventDefault();
+        },
         searchToggle: function(event){
             //防止wrap层未消失时多次点击
             if (event.target.tagName === "DIV"){

@@ -12,8 +12,6 @@ Vue.use(VueTouch)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-document.body.addEventListener('touchstart', function(){ });
-
 var foo = Vue.extend({
     template: '<p>this is foo!</p>'
 })
