@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="Shortcut Icon" href="../static/img/cat.ico" type="image/x-icon">
+    <title>临渊羡鱼 不如退而结网</title>
+</head>
+<body id="myapp">
+    <div class="header">
+        <div class="logo">
+            <img src="./src/assets/img/logo.png">
+            <span>Django-Vue.js</span>
+        </div>
+        <div class="nav clearfix">
+            <ul class="clearfix list">
+                <li><a href="javascript:void(0);">首页</a></li>
+                <li><a href="javascript:void(0);">归档</a></li>
+                <li><a href="javascript:void(0);">标签</a></li>
+                <li><a href="javascript:void(0);" v-on:click="searchToggle">搜索</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 移动端导航条 -->
+    <div id="nav-bar">
+        <div class="mobile-bar">
+            <img src="./src/assets/img/logo.png">
+            <a id="nav-btn" v-touch:tap="slideToggle"><i class="fa fa-navicon fa-lg"></i></a>
+        </div>
+        <ul id="list" v-show="display" transition="dropDown" style="display: none">
+            <li><a href="javascript:void(0);">首页</a></li>
+            <li><a href="javascript:void(0);">归档</a></li>
+            <li><a href="javascript:void(0);">标签</a></li>
+            <li><a href="javascript:void(0);"  v-touch:tap="searchToggle">搜索</a></li>
+        </ul>
+    </div>
+    <!-- search -->
+    <div class="search-wrap" v-show="search" transition="search" style="display:none">
+        <div class="search">
+            <div class="icon">
+                <a href="javascript:void(0);"><i class="fa fa-search"></i></a>
+            </div>
+            <div class="search-content">
+                <input id="search" class="search-keyword" type="text" placeholder="请输入关键字" autofocus="autofocus">
+            </div>
+        </div>
+        <div class="content">
+            <div class="search-infor"></div>
+            <div class="search-list"></div>
+        </div>
+        <span class="close-btn" v-touch:tap="searchToggle">
+            <i class="fa fa-times-circle"></i>
+        </span>
+    </div>
+    <div class="section clearfix" v-touch:tap="slideClose">
+        <div class="body">
+            <img src="./src/assets/img/index.jpg">
+            <div class="view" id="app">
+                <router-view></router-view>
+            </div>
+        </div>
+        <div class="aside">
+            <div class="profile">
+                <div class="short-about">
+                    <img src="./src/assets/img/me.jpg">
+                    <h3>Yan ran</h3>
+                    <p>临渊羡鱼 不如退而结网</p>
+                </div>
+                <div class="socially">
+                    <a href="javascript:void(0);" target="_blink">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="javascript:void(0);" target="_blink">
+                            <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="https://github.com/yanran200730" target="_blink">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="http://yanran520.cc" target="_blink">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-edge fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="interest">
+                <a href="javascript:void(0);">CSS</a>
+                <a href="javascript:void(0);">HTML</a>
+                <a href="javascript:void(0);">JavaScript</a>
+                <a href="javascript:void(0);">Python</a>
+                <a href="javascript:void(0);">Django</a>
+                <a href="javascript:void(0);">Music</a>
+                <a href="javascript:void(0);">Vue.js</a>
+            </div>
+            <div class="link">
+                <h3>友链</h3>
+                <a href="http://yanran520.cc" target="_blink">calvin blog</a>
+            </div>
+        </div>       
+    </div>
+    <div class="footer">
+        <div></div>
+    </div>
+    <div class="wrap" v-show="search" v-on:click="searchToggle" style="display:none" transition="wrap"></div>
+</body>
+</html>
