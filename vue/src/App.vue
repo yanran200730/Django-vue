@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper clearfix">
+    <div class="wrapper">
         <vheader class="header"></vheader>
         <div class="main clearfix">
             <div class="body">
@@ -8,7 +8,7 @@
                 <a v-link="{path: '/bar'}">click to bar</a>
                 <router-view></router-view>
             </div>
-            <vaside class="aside clearfix"></vaside>
+            <vaside class="aside"></vaside>
         </div>
         <vfooter class="footer"></vfooter>
     </div>
@@ -177,14 +177,5 @@
         .socially {
             display: none !important;
         }
-    }
-
-    .footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 1rem;
-        margin-top: 0.3rem;
-        background-color: #848383;
     }
 </style>

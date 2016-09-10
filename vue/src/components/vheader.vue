@@ -10,7 +10,7 @@
                 <li><a href="javascript:void(0);">首页</a></li>
                 <li><a href="javascript:void(0);">归档</a></li>
                 <li><a href="javascript:void(0);">标签</a></li>
-                <li><a href="javascript:void(0);" v-touch:tap="searchToggle">搜索</a></li>
+                <li><a v-touch:tap="searchToggle">搜索</a></li>
             </ul>
         </div>
     </div>
