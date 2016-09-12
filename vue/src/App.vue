@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <vheader class="header"></vheader>
+        <Headers class="header"></Headers>
         <div class="main clearfix">
             <div class="body">
                 <img src="./assets/img/index.jpg">
@@ -8,23 +8,23 @@
                 <a v-link="{path: '/bar'}">click to bar</a>
                 <router-view></router-view>
             </div>
-            <vaside class="aside"></vaside>
+            <Aside class="aside"></Aside>
         </div>
-        <vfooter class="footer"></vfooter>
+        <Footers class="footer"></Footers>
     </div>
 </template>
 
 <script type="text/babel">
-    import './assets/font-awesome-4.6.3/css/font-awesome.min.css'
-    import vheader from './components/vheader.vue'
-    import vaside from './components/vaside.vue'
-    import vfooter from './components/vfooter.vue'
+    import './assets/font-awesome-4.6.3/css/font-awesome.min.css';
+    import Headers from './components/Header.vue';
+    import Aside from './components/Aside.vue';
+    import Footers from './components/Footer.vue';
 
     export default {
         components: {
-            vheader,
-            vaside,
-            vfooter
+            Headers,
+            Aside,
+            Footers
         }
     }
 </script>

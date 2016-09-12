@@ -11,7 +11,7 @@
         text-align: center;
         color: #E6E6E6;
         background-color: #848383;
-        margin-top: 0.3rem;
+        margin-top: 3rem;
         padding-bottom: 0.1rem;
     }
 

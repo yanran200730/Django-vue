@@ -24,12 +24,14 @@ var bar = Vue.extend({
 })
 
 router.map({
-    '/foo':{
-        component: foo
+    '/home':{
+        component: function(resolve) {
+            require(['./components/Home'], resolve)
+        }
     },
-    '/bar': {
-        component: bar
-    }
+    // '/bar': {
+    //     component: bar
+    // }
 })
 
 // router.redirect({
