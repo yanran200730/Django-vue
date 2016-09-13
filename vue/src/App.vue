@@ -4,8 +4,6 @@
         <div class="main clearfix">
             <div class="body">
                 <img src="./assets/img/index.jpg">
-                <a v-link="{path: '/foo'}">click to foo</a>
-                <a v-link="{path: '/bar'}">click to bar</a>
                 <router-view></router-view>
             </div>
             <Aside class="aside"></Aside>
