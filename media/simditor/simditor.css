@@ -9,9 +9,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-
-
 .simditor-icon {
   display: inline-block;
   font: normal normal normal 14px/1 'Simditor';
@@ -203,7 +200,7 @@
   left: 0;
 }
 .simditor .simditor-body {
-  padding: 10px 10px 40px;
+  padding: 22px 15px 40px;
   min-height: 300px;
   outline: none;
   cursor: text;
@@ -749,13 +746,10 @@
 }
 
 
-/*自定义编辑器样式*/
-.simditor-body > p {
-  margin: 0!important;
-  padding: 0 40px 10px 10px!important ;
+ul,li {
+  list-style: none!important;
 }
 
-.simditor-placeholder {
-  padding: 7px 40px 10px 20px!important;
-  font-size: 14px !important;
+.aligned label {
+  float: none !important;
 }
