@@ -29,6 +29,7 @@ class ArticleAdmin(admin.ModelAdmin):
             'simditor/config.js',
             'simditor/simditor-autosave.js',
             'simditor/simditor-mark.js',
+            # 'simditor/simditor-markdown.js',
         )
 
 admin.site.register(Article,ArticleAdmin)
