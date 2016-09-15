@@ -1,7 +1,7 @@
 <template>
 	<ul v-for="item in items" id="content">
 		<li>
-			<h1>{{ item.fields.tag }}</h1>
+			<h1>{{ item.fields.title }}</h1>
 			<div v-html ="item.fields.content" class="content"></div>
 		</li>
 	</ul>
@@ -11,7 +11,7 @@
     import Prism from "prismjs"
 
 	export default {
-		data() {
+		data: function(){
 			return {
 				apiUrl: "http://127.0.0.1:8000/api/article/",
 				items: [],		
@@ -30,7 +30,7 @@
                     this.$nextTick(function(){
                         Prism.highlightAll();
                     })
-				},function(){
+				},function(response){
 					console.log('error')
 				});
             }
