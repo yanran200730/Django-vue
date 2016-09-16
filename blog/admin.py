@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Article
+from .models import Article,Users
 from django import forms
-# from pagedown.widgets import AdminPagedownWidget
-# widget=AdminPagedownWidget()
+from pagedown.widgets import AdminPagedownWidget
+widget=AdminPagedownWidget()
 
 class ArticleForm(forms.ModelForm):
     content = forms.CharField()
@@ -33,3 +33,4 @@ class ArticleAdmin(admin.ModelAdmin):
         )
 
 admin.site.register(Article,ArticleAdmin)
+admin.site.register(Users)

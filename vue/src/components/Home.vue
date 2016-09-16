@@ -1,8 +1,8 @@
 <template>
 	<ul v-for="item in items" id="content">
 		<li>
-			<h1>{{ item.fields.title }}</h1>
-			<div v-html ="item.fields.content" class="content"></div>
+			<h1>{{ item.title }}</h1>
+			<div v-html ="item.content" class="content"></div>
 		</li>
 	</ul>
 </template>
@@ -39,5 +39,13 @@
 </script>
 
 <style scoped>
+	#content {
+		font-size: 14px;
+		color: #34495e;
+	}
 
+	.content p {
+		word-spacing: 0.05em;
+		line-height: 1.6;
+	}
 </style>
