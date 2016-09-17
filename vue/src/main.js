@@ -19,13 +19,25 @@ router.map({
     '/home':{
         component: function(resolve) {
             require(['./components/Home'], resolve)
-        }
+        },
     },
+    '/article/:id': {
+      name: 'id',
+   		component: function(resolve){
+       		require(['./components/Article'], resolve)
+       	}
+   	}
 })
 
-router.redirect({
+router.redirect({ 
   '*': '/home'
 })
+
+//过滤,从Django获取的是中国时区的时间,因此在用js格式化的时候得减8个小时
+Vue.filter('datetime',function(value) {
+	const date = new Date(new Date(value).valueOf() - 8*60*60*1000);
+	return date.toLocaleDateString().replace(/\//g," / ")
+});
 
 router.start(App,'#app')
 

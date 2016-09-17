@@ -753,3 +753,9 @@ ul,li {
 .aligned label {
   float: none !important;
 }
+
+
+.simditor-body {
+  height: 300px;
+  overflow-y: auto; 
+}

@@ -146,7 +146,7 @@ p {
 
 h1,h2,h3,h4,h5,h6 {
 	font-size: 1.5em;
-	color: #2c3e50;
+	color: #0F0F0F;
 	margin: 1.5em 0 0;
 }
 
@@ -170,10 +170,10 @@ blockquote ul {
 	margin: 20px 0 0 30px;
 }
 
-.content a {
-	color: #4db2ec;
+.blog a {
+	color: #4db2ec !important;
 }
 
-.content a:hover {
+.blog a:hover {
 	text-decoration: underline;
 }

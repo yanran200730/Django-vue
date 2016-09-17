@@ -61,7 +61,6 @@
         font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
         word-spacing: 0.05em;
         -webkit-tap-highlight-color:transparent;
-        background-color: #F6F5F5;
     }
 
     a {
@@ -121,7 +120,11 @@
         .body {
             width: 100% !important;
             float: none !important;
-            margin: 0 !important;
+            margin: 0px !important;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box; 
+            -webkit-box-sizing:border-box;
+            padding: 0 15px;
         }
 
         .body > img {
@@ -170,6 +173,7 @@
 
         .short-about > h3, .short-about > p {
             color: #E4E1E1 !important;
+            margin: 0px !important;
         }
 
         .socially {

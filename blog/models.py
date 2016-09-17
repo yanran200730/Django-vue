@@ -14,6 +14,7 @@ class Users(models.Model):
 class Article(models.Model):
     author = models.ForeignKey(Users,related_name='name')
     content = models.TextField('文章')
+    abstract = models.TextField(max_length=200)
     tag = models.CharField("标签",max_length=10)
     title = models.CharField("标题",max_length=20)
     created = models.DateTimeField(default=timezone.now)

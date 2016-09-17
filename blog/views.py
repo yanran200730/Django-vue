@@ -1,10 +1,9 @@
 from django.shortcuts import render,HttpResponse
 from blog.models import Article
-import json
 from django.core import serializers
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from .serializers import ArticleSerializer
+from .serializers import ArticleSerializer,ArticleListSerializer
 
 def home(request):
     return render(request,"index.html")
@@ -24,10 +23,17 @@ class JSONResponse(HttpResponse):
         kwargs['content_type'] = 'application/json'
         super(JSONResponse, self).__init__(content, **kwargs)
 
-def article(request):
+def article_list(request):
     article = Article.objects.all()
-    serializer = ArticleSerializer(article, many=True)
+    serializer = ArticleListSerializer(article, many=True)
     response = JSONResponse(serializer.data)
-    response['Access-Control-Allow-Origin'] = '*'
+    response['Access-Control-Allow-Origin'] = '*' #跨域
     return response
-    # return JSONResponse(serializer.data)
+
+def article(request,id):
+    article = Article.objects.get(id=str(id))
+    serializer = ArticleSerializer(article)
+    response = JSONResponse(serializer.data)
+    response['Access-Control-Allow-Origin'] = '*' #跨域
+    return response
+
