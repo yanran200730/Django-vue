@@ -4,7 +4,7 @@
         <div class="main clearfix">
             <div class="body">
                 <img src="./assets/img/index.jpg">
-                <router-view></router-view>
+                <router-view transition="switch" transition-mode="out-in"></router-view>
             </div>
             <Aside class="aside"></Aside>
         </div>
@@ -96,6 +96,22 @@
         height: 300px;
     }
 
+    /*转场动画*/
+
+    .switch-transition {
+        transition: all .4s ease-in-out;
+    }
+
+    .switch-enter{
+        opacity: 0;
+        /*transform: translate(100%,0);*/
+    }
+
+    .switch-leave {
+        opacity: 0;
+        /*transform: translate(-100%,0);*/
+    }
+
     @media screen and (min-width: 900px) and (max-width: 1100px){
         .main {
             width: 100% !important;
@@ -178,6 +194,24 @@
 
         .socially {
             display: none !important;
+        }
+
+        .switch-transition {
+            -moz-transition: all 0.5s ease-in-out;
+            -webkit-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease;
+            opacity: 1;
+        }
+
+        .switch-enter{
+            /*opacity: 0;*/
+            transform: translate(100%,0);
+        }
+
+        .switch-leave {
+            /*opacity: 0;*/
+            transform: translate(-100%,0);
         }
     }
 </style>

@@ -1,6 +1,8 @@
 <template>
-	<h1>{{ article.title }}</h1>
-	<div class="blog">{{{ article.content }}}</div>
+    <div class="article-content">
+	   <h1>{{ article.title }}</h1>
+	   <p>{{{ article.content }}}</p>
+    </div>
 </template>
 
 
@@ -16,13 +18,14 @@
     		}
     	},
 
-        created: function(){
+        ready: function(){
             this.getData();
         },
 
 		methods: {
-			getData: function(){
-				this.$http.get(this.apiUrl + this.$route.params.id + '/').then(function(response){
+			getData: function(foo){
+                var self = this;
+				this.$http.get(this.apiUrl + this.$route.params.id).then(function(response){
 					const data = response.body;
                     this.article = data;
                     this.$nextTick(function(){
@@ -36,5 +39,6 @@
     }
 </script>
 <style scoped>
+    
 
 </style>

@@ -1,21 +1,23 @@
 <template>
-	<ul v-for="article in article_list" id="content">
-		<li class="article">
-			<h1><a v-link="{ name: 'id', params: { id: article.id } }">{{ article.title }}</a></h1>
-			<span>作者：{{ article.author }}  -  {{ article.created | datetime }}</span>
-			<p>{{ article.abstract }}</p>
-			<div class="tags">
-				<a href="javascript:;" class="tag">{{ article.tag }}</a>
-				<a class="click"><i class="fa fa-eye fa-1x"></i>&nbsp;&nbsp;浏览&nbsp; {{ article.times }}</a>
-			</div>
-		</li>
-	</ul>
+    <div class="wrap-article">
+    	<ul v-for="article in article_list" id="content">
+    		<li class="article">
+    			<h1><a v-link="{ name: 'id', params: { id: article.id } }">{{ article.title }}</a></h1>
+    			<span>作者：{{ article.author }}  -  {{ article.created | datetime }}</span>
+    			<p><a v-link="{ name: 'id', params: { id: article.id } }">{{ article.abstract }}</a></p>
+    			<div class="tags">
+    				<a href="javascript:;" class="tag">{{ article.tag }}</a>
+    				<a class="click"><i class="fa fa-eye fa-1x"></i>&nbsp;&nbsp;浏览&nbsp; {{ article.times }}</a>
+    			</div>
+    		</li>
+    	</ul>
+    </div>
 </template>
 <script type="text/babel">
 	export default {
 		data: function(){
 			return {
-				apiUrl: "http://127.0.0.1:8000/api/article_list/",
+				apiUrl: "http://127.0.0.1:8000/api/article_list",
 				article_list: [],		
 			}
 		},
@@ -61,7 +63,7 @@
 
 	.article > h1 {
 		font-size: 24px;
-		color: #555;
+		color: #4e4d4d;
 	}
 
 	.article > span {
@@ -74,7 +76,7 @@
 	.article > p {
 		font-size: 14px;
 		line-height: 1.7;
-		color: #6E6D6D;
+		color: #565555;
 	}
 
 	.tags {
@@ -106,8 +108,7 @@
 		color: #fff;
 	}
 
-/* 	.article:hover {
-		background-color: #E7E6E6;
-		border-radius: 10px;
-	} */
+    .article > h1:hover ,.article >p:hover {
+        text-decoration: underline;
+    }
 </style>
