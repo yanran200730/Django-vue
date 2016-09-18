@@ -130,7 +130,8 @@
     @media screen and (max-width: 900px){
         .main  {
             width: 100% !important;
-            margin: 240px 0 0 0 !important;
+            margin: 200px 0 0 0 !important;
+            padding-top: 15px;
         }
 
         .body {
@@ -174,7 +175,7 @@
             left: 0;
             top: 10px;
             width: 100%;
-            z-index: -1;
+            z-index: 20;
             margin: 40px 0 0 0!important;
         }
 
@@ -192,6 +193,15 @@
             margin: 0px !important;
         }
 
+        .short-about > h3 {
+            font-size: 1.1em !important;
+        }
+
+        .short-about > p {
+            line-height: 1.4 !important;
+            font-size: 1em;
+        }
+
         .socially {
             display: none !important;
         }
@@ -205,13 +215,13 @@
         }
 
         .switch-enter{
-            /*opacity: 0;*/
-            transform: translate(100%,0);
+            opacity: 0;
+            /* transform: translate(100%,0); */
         }
 
         .switch-leave {
-            /*opacity: 0;*/
-            transform: translate(-100%,0);
+            opacity: 0;
+            /* transform: translate(-100%,0); */
         }
     }
 </style>

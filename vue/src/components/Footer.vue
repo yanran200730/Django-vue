@@ -17,5 +17,6 @@
 
     p {
         padding-top: 0.1rem;
+        margin: 0px !important;
     }
 </style>

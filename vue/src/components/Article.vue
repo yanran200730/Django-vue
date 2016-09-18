@@ -13,7 +13,7 @@
     export default {
     	data: function(){
     		return {
-    			apiUrl: "http://127.0.0.1:8000/api/blog/",
+    			apiUrl: "http://192.168.1.115:8000/api/blog/",
     			article: ""
     		}
     	},
@@ -39,6 +39,9 @@
     }
 </script>
 <style scoped>
-    
+    .article-content {
+    	margin-top: 30px;
+    	font-size: 14px;
+    }
 
 </style>

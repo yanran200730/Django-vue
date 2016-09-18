@@ -1,4 +1,4 @@
-/**
+/* /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
@@ -46,7 +46,6 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	}
 }
 
-/* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;
@@ -136,17 +135,18 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
-
-
-
 p {
 	line-height: 1.6;
 	word-spacing: 0.05em;
 	margin: 1.5em 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	font-size: 1.5em;
+h1 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.3em;
 	color: #0F0F0F;
 	margin: 1.5em 0 0;
 }
@@ -179,3 +179,10 @@ blockquote ul {
 	text-decoration: underline;
 }
 
+
+@media screen and (max-width: 700px){
+	.article-content {
+		margin-top: 15px !important;
+		font-size: 12px!important;
+	}
+}

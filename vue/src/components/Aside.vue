@@ -67,6 +67,7 @@
     }
 
     .short-about > h3 {
+        font-size: 16px !important;
         color: #808080;
         text-align: center;
     }
@@ -122,11 +123,12 @@
     .link {
         margin-top: 20px;
         text-align: center;
-        color: #808080;
     }
 
     .link > h3 {
+        font-size: 16px !important;
         margin-bottom: 7px;
+        color: #808080 !important;
     }
 
     .link > a {

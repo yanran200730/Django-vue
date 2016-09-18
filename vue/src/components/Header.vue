@@ -7,7 +7,7 @@
         </div>
         <div class="nav clearfix" v-show="dropState" transition="dropDown">
             <ul class="clearfix list">
-                <li><a v-link="{ path: '/' }">首页</a></li>
+                <li><a v-link="{ path: '/' }" v-touch:tap="changeState">首页</a></li>
                 <li><a href="javascript:void(0);">归档</a></li>
                 <li><a href="javascript:void(0);">标签</a></li>
                 <li><a v-touch:tap="searchToggle">搜索</a></li>
@@ -32,6 +32,7 @@
         </span>
     </div>
     <div class="wrap" v-show="search" v-on:click="searchToggle" style="display:none" transition="wrap"></div>
+    <div class="wrapDrop" v-show="wrapState" v-touch:tap="changeState" style="display:none"></div>
 </template>
 
 <script>
@@ -39,22 +40,29 @@
         data(){
             return {
                 dropState: false,
-                search : false
+                search : false,
+                wrapState: false
             }
         },
         methods: {
             slideToggle: function(event){
                 this.dropState = !this.dropState;
+                this.wrapState = !this.wrapState;
                 event.preventDefault();
             },
             searchToggle: function(event){
                 //防止wrap层未消失时多次点击
                 if (event.target.tagName === "DIV"){
-                    this.search = false;               
+                    this.search = false;            
                 }else {
                     this.search = !this.search;
                 }
+                this.dropState = false;   
                 event.preventDefault();
+            },
+            changeState: function(){
+                this.dropState = false,
+                this.wrapState = false;
             }
         }
     }
@@ -63,9 +71,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .header {
-        position: relative;
-        top: 0;
-        left: 0;
         padding: 0.1rem 0.85rem;
         background-color: #fff;
         box-shadow: 0 0 4px rgba(0,0,0,0.25);
@@ -231,7 +236,6 @@
         opacity: 0;
     }
 
-
     @media screen and (min-width: 900px){
         .nav {
             display: block !important;
@@ -251,7 +255,7 @@
 
     @media screen and (max-width: 900px){
         .header {
-            position: fixed;
+            /* position: fixed; */
             top: 0;
             left: 0;
             width: 100%;
@@ -290,6 +294,7 @@
             top: 40px;
             left: 0px;
             right: 0px;
+            z-index: 100;
             width: 100%;
             margin: 0px !important;
             padding: 0px !important;
@@ -332,6 +337,16 @@
         .search {
             border-top-left-radius: 0px !important;
             border-top-right-radius: 0px !important;
+        }
+
+        .wrapDrop {
+            position: fixed;
+            top: 40px;
+            height: 100%;
+            width: 100%;
+            z-index: 10;
+            cursor: pointer;
+/*             background-color: rgba(0,0,0,.6); */
         }
 
     }
