@@ -1,10 +1,10 @@
 <template>
     <div class="wrapper">
-        <Headers class="header"></Headers>
+        <Headers></Headers>
         <div class="main clearfix">
             <div class="body">
                 <img src="./assets/img/index.jpg">
-                <router-view transition="switch" transition-mode="out-in"></router-view>
+                <router-view  transition="fade" transition-mode="out-in"></router-view>
             </div>
             <Aside class="aside"></Aside>
         </div>
@@ -14,7 +14,7 @@
 
 <script type="text/babel">
     import './assets/font-awesome-4.6.3/css/font-awesome.min.css';
-    import Headers from './components/Header.vue';
+    import Headers from './components/Headers.vue';
     import Aside from './components/Aside.vue';
     import Footers from './components/Footer.vue';
 
@@ -206,7 +206,7 @@
             display: none !important;
         }
 
-        .switch-transition {
+/*        .fade-transition {
             -moz-transition: all 0.5s ease-in-out;
             -webkit-transition: all 0.5s ease-in-out;
             -o-transition: all 0.5s ease-in-out;
@@ -214,14 +214,14 @@
             opacity: 1;
         }
 
-        .switch-enter{
+        .fade-enter{
             opacity: 0;
-            /* transform: translate(100%,0); */
+            transform: translate3d(100%,0,0); 
         }
 
-        .switch-leave {
+        .fade-leave {
             opacity: 0;
-            /* transform: translate(-100%,0); */
-        }
+            transform: translate3d(-100%,0,0); 
+        }*/
     }
 </style>

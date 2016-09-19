@@ -1,7 +1,7 @@
 <template>
-    <div class="header">
+    <div class="header-content">
         <div class="logo">
-            <img src="../assets/img/logo.png">
+            <img src="../assets/img/logo.png" v-link="{ path: '/' }" v-touch:tap="changeState">
             <span>Django-Vue.js</span>
             <a id="nav-btn"  v-touch:tap="slideToggle"><i class="fa fa-navicon fa-lg"></i></a>
         </div>
@@ -70,7 +70,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .header {
+    .header-content {
         padding: 0.1rem 0.85rem;
         background-color: #fff;
         box-shadow: 0 0 4px rgba(0,0,0,0.25);
@@ -85,6 +85,7 @@
         width: 0.4rem;
         height: 0.4rem;
         vertical-align: middle;
+        cursor: pointer;
     }
 
     .logo > span {
@@ -254,8 +255,7 @@
     }
 
     @media screen and (max-width: 900px){
-        .header {
-            /* position: fixed; */
+        .header-content {
             top: 0;
             left: 0;
             width: 100%;
@@ -346,7 +346,6 @@
             width: 100%;
             z-index: 10;
             cursor: pointer;
-/*             background-color: rgba(0,0,0,.6); */
         }
 
     }

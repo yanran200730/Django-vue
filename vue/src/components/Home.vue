@@ -11,14 +11,27 @@
     			</div>
     		</li>
     	</ul>
+        <Loading v-show="loading"></Loading>
+        <Dialog v-show="showDialog" v-bind:message="errorCode"></Dialog>
     </div>
+
 </template>
 <script type="text/babel">
+    import Loading from './Loading.vue'
+    import Dialog from './Dialog.vue'
+
 	export default {
+        components: {
+            Loading,
+            Dialog
+        },
 		data: function(){
 			return {
-				apiUrl: "http://192.168.1.115:8000/api/article_list",
-				article_list: [],		
+				apiUrl: "http://192.168.1.116:8000/api/article_list",
+				article_list: [],
+                loading: false,
+                showDialog: false,
+                errorCode: ""		
 			}
 		},
 
@@ -41,10 +54,15 @@
 
 <style scoped>
 	.wrap-article {
+        position: relative;
 		margin-top: 30px;
 		font-size: 14px;
 		color: #1F1F1F;
 	}
+
+    #content {
+        margin-bottom: 25px;
+    }
 
 	.content p {
 		word-spacing: 0.05em;
