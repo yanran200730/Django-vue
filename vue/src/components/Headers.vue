@@ -288,6 +288,10 @@
             color: #fff;
             font-size: 20px;
         }
+
+        .logo > a:active {
+            color: #E9E8E8;
+        }
         
         .nav {
             position: absolute;

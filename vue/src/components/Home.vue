@@ -1,10 +1,10 @@
 <template>
-    <div class="wrap-article">
+    <div class="wrap-article" transition="fade" transition-mode="out-in">
     	<ul v-for="article in article_list" id="content">
     		<li class="article">
-    			<h1><a v-link="{ name: 'id', params: { id: article.id } }">{{ article.title }}</a></h1>
+    			<h1><a v-link="{ name: 'id', params: { id: article.id } }" title="{{ article.title }}">{{ article.title }}</a></h1>
     			<span>作者：{{ article.author }}  -  {{ article.created | datetime }}</span>
-    			<p><a v-link="{ name: 'id', params: { id: article.id } }">{{ article.abstract }}</a></p>
+    			<p><a v-link="{ name: 'id', params: { id: article.id } }" title="{{ article.title }}">{{ article.abstract }}</a></p>
     			<div class="tags">
     				<a href="javascript:;" class="tag">{{ article.tag }}</a>
     				<a class="click"><i class="fa fa-eye fa-1x"></i>&nbsp;&nbsp;浏览&nbsp; {{ article.times }}</a>
@@ -28,7 +28,7 @@
         },
 		data: function(){
 			return {
-				apiUrl: "http://192.168.1.116:8000/api/article_list",
+				apiUrl: "http://192.168.1.115:8000/api/article_list",
 				article_list: [],
                 loading: false,
                 showDialog: false,
@@ -88,7 +88,7 @@
 
 	.article > span {
 		display: block;
-		font-size: 13px;
+		font-size: 10px;
 		color: #ccc;
 		margin: 12px 0;
 	}
@@ -100,6 +100,7 @@
 	}
 
     .article > p > a{
+    	display: block;
         color: #939292;
     }
 
@@ -126,15 +127,38 @@
 		font-size: 16px;
 	}
 
-	.tag:hover {
+	.tag:hover,.tag:active {
 		background-color: #cbc8c8;
 		color: #fff;
 	}
 
-    .article > h1:hover ,.article >p:hover {
-        text-decoration: underline;
+    .article >h1>a:hover {
+    	display: block;
+        color: #4db2ec;
     }
 
+    .article >p>a:hover {
+    	display: block;
+        color: #343434;
+    }
+
+/*     .fade-transition {
+        -moz-transition: all 0.5s ease-in-out;
+   	    -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease;
+        opacity: 1;
+    }
+
+    .fade-enter{
+        opacity: 0;
+    }
+
+    .fade-leave {
+		opacity: 1;
+        transform: translate3d(-100%,0,0);
+    }
+ */
 	@media screen and (max-width: 700px){
 		
 		.wrap-article {
@@ -164,6 +188,20 @@
 
         .click {
             margin: 3px 15px 0 0;
+        }
+
+	    .article >h1>a:hover {
+	    	display: block;
+	        color: #4e4d4d;
+	    }
+
+	    .article >p>a:hover {
+	        color: #939292;
+	    }
+
+        .article > p >a:active {
+        	text-decoration: none !important;
+        	background-color: #E4E4E4;
         }
 	}
 

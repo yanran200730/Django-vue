@@ -4,7 +4,7 @@
         <div class="main clearfix">
             <div class="body">
                 <img src="./assets/img/index.jpg">
-                <router-view  transition="fade" transition-mode="out-in"></router-view>
+                <router-view></router-view>
             </div>
             <Aside class="aside"></Aside>
         </div>
@@ -205,23 +205,5 @@
         .socially {
             display: none !important;
         }
-
-/*        .fade-transition {
-            -moz-transition: all 0.5s ease-in-out;
-            -webkit-transition: all 0.5s ease-in-out;
-            -o-transition: all 0.5s ease-in-out;
-            transition: all 0.5s ease;
-            opacity: 1;
-        }
-
-        .fade-enter{
-            opacity: 0;
-            transform: translate3d(100%,0,0); 
-        }
-
-        .fade-leave {
-            opacity: 0;
-            transform: translate3d(-100%,0,0); 
-        }*/
     }
 </style>
