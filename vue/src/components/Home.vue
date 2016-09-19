@@ -11,7 +11,8 @@
     			</div>
     		</li>
     	</ul>
-        <Loading v-show="loading"></Loading>
+        <!-- 首页用加载动画貌似不咋好呃！！！ -->
+        <!-- <Loading v-show="loading"></Loading> -->
         <Dialog v-show="showDialog" v-bind:message="errorCode"></Dialog>
     </div>
 
@@ -31,7 +32,7 @@
 				article_list: [],
                 loading: false,
                 showDialog: false,
-                errorCode: ""		
+                errorCode: "网络问题！请稍后再试！！！"		
 			}
 		},
 
@@ -96,31 +97,33 @@
 		font-size: 1em;
 		line-height: 1.7;
 		margin: 15px 0 0 0;
-		color: #565555;
 	}
 
+    .article > p > a{
+        color: #939292;
+    }
+
 	.tags {
-		margin: 10px 0 15px 0;
+		margin: 25px 0 5px 0;
+        font-size: 12px;
 	}
 	
 	.tag {
 		border: 1px solid #bfbfbf;
 		border-radius: 4px;
-		font-size: 13px;
 		display: inline-block;
 		padding: 5px 10px;
-		color: #2D2C2C;
+        color: #B4B3B3;
 	}
+
 	.click {
 		float: right;
+        color: #B4B3B3;
 		margin: 5px 15px 0 0;
-		font-size: 14px;
-		color: #2D2C2C;
 	}
 
 	.click > i {
 		font-size: 16px;
-		color: #2D2C2C;
 	}
 
 	.tag:hover {
@@ -150,6 +153,18 @@
 		.article > p {
 			margin: 0px;
 		}
+
+        .tags {
+            margin: 17px 0 13px 0 !important;
+        }
+
+        .tag {
+            padding: 3px 10px;
+        }
+
+        .click {
+            margin: 3px 15px 0 0;
+        }
 	}
 
 </style>

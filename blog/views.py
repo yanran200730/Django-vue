@@ -24,6 +24,7 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 def article_list(request):
+    # article = Article.objects.all()[0:1]
     article = Article.objects.all()
     serializer = ArticleListSerializer(article, many=True)
     response = JSONResponse(serializer.data)

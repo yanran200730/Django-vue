@@ -16,7 +16,7 @@ Vue.http.interceptors.push(function(request,next){
 
     next(function(response){
         if (!response.ok) {
-            this.errorCode = response.status;
+            // this.errorCode = response.status;
             this.showDialog = true;
         }
         this.loading = false;
