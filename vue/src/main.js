@@ -24,6 +24,15 @@ Vue.http.interceptors.push(function(request,next){
     })
 })
 
+//自定义指令
+Vue.directive('print',{
+  bind:function(){
+    console.log('111111')
+  },
+  update: function(value){
+    value();
+  }
+})
 
 const router = new VueRouter({
     history: true,
@@ -38,9 +47,9 @@ router.map({
     },
     '/article/:id': {
         name: 'id',
-       		component: function(resolve){
-           		require(['./components/Article'], resolve)
-           	}
+       	component: function(resolve){
+       		require(['./components/Article'], resolve)
+       	}
    	}
 })
 

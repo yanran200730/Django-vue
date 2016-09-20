@@ -14,14 +14,22 @@
         position: absolute;
         left: 0;
         top: 0;
-        z-index: 10000;
+        z-index: 100;
         width: 100%;
         height: 100%;
         text-align: center;
         font-size: 14px;
         padding-top: 40px; 
-        /*color: #67CF22;*/
-        color: #4db2ec;
-        background-color: #fff;
+    }
+
+    .dialog > p {
+        padding: 15px;
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+        border-color: #faebcc;
     }
 </style>

@@ -8,12 +8,6 @@ from .serializers import ArticleSerializer,ArticleListSerializer
 def home(request):
     return render(request,"index.html")
 
-# def article(request):
-#     data = serializers.serialize('json', Article.objects.all(), use_natural_foreign_keys=True)
-#     response = HttpResponse(data,content_type="application/json")
-#     response['Access-Control-Allow-Origin'] = '*'
-#     return response
-
 class JSONResponse(HttpResponse):
     """
     An HttpResponse that renders its content into JSON.
@@ -32,7 +26,14 @@ def article_list(request):
     return response
 
 def article(request,id):
+    if request.session.get("visitor") == None:
+        clickNumber = 0
+    else:
+        clickNumber = 1
     article = Article.objects.get(id=str(id))
+    article.times = article.times + clickNumber
+    article.save()
+    request.session["visitor"] = "True"
     serializer = ArticleSerializer(article)
     response = JSONResponse(serializer.data)
     response['Access-Control-Allow-Origin'] = '*' #跨域

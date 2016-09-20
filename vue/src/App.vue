@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" transition="backTop">
         <Headers></Headers>
         <div class="main clearfix">
             <div class="body">
@@ -9,6 +9,7 @@
             <Aside class="aside"></Aside>
         </div>
         <Footers class="footer"></Footers>
+        <Backtop v-show="scrollShow" v-touch:tap="backtop" transition="fade" transition-mode="out-in"></Backtop>
     </div>
 </template>
 
@@ -17,12 +18,52 @@
     import Headers from './components/Headers.vue';
     import Aside from './components/Aside.vue';
     import Footers from './components/Footer.vue';
+    import Backtop from './components/Backtop.vue';
 
     export default {
         components: {
             Headers,
             Aside,
-            Footers
+            Footers,
+            Backtop
+        },
+        data: function(){
+            return {
+                scrollTop: "",
+                scrollShow: false,
+                timer: null,
+                flag: true
+            }
+        },
+        ready: function(){
+            this.getScrollTop();
+        },
+        methods: {
+            getScrollTop: function(){
+                let self = this;
+                document.addEventListener("scroll",function(){
+                    self.scrollTop= document.body.scrollTop;
+                    (self.scrollTop>800)?(self.scrollShow = true):(self.scrollShow = false);
+                    if (!self.flag) {
+                        clearInterval(self.timer);
+                    }
+                    self.flag = false
+                })
+            },
+            backtop: function(){
+                let speed;
+                let self = this;
+
+                this.timer = setInterval(function(){
+                    speed = Math.ceil(document.body.scrollTop/10);
+                    if (document.body.scrollTop === 0) {
+                        clearInterval(self.timer);
+                    };
+                    document.body.scrollTop = document.body.scrollTop - speed;
+                    self.flag = true;
+                },20);
+                
+            }
         }
     }
 </script>
@@ -110,6 +151,17 @@
     .switch-leave {
         opacity: 0;
         /*transform: translate(-100%,0);*/
+    }
+
+    .fade-transition {
+        -moz-transition: opacity 0.7s ease;
+        -webkit-transition: opacity 0.7s ease;
+        -o-transition: opacity 0.7s ease;
+        transition: opacity 0.7s ease;
+    }
+
+    .fade-enter, .fade-leave {
+        opacity: 0;
     }
 
     @media screen and (min-width: 900px) and (max-width: 1100px){

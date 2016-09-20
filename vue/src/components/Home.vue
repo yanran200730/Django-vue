@@ -1,5 +1,5 @@
 <template>
-    <div class="wrap-article" transition="fade" transition-mode="out-in">
+    <div class="wrap-article">
     	<ul v-for="article in article_list" id="content">
     		<li class="article">
     			<h1><a v-link="{ name: 'id', params: { id: article.id } }" title="{{ article.title }}">{{ article.title }}</a></h1>
@@ -28,7 +28,7 @@
         },
 		data: function(){
 			return {
-				apiUrl: "http://192.168.1.115:8000/api/article_list",
+				apiUrl: "http://192.168.1.111:8000/api/article_list",
 				article_list: [],
                 loading: false,
                 showDialog: false,
@@ -139,7 +139,7 @@
 
     .article >p>a:hover {
     	display: block;
-        color: #343434;
+        color: #6A6A6A;
     }
 
 /*     .fade-transition {
