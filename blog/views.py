@@ -26,16 +26,16 @@ def article_list(request):
     return response
 
 def article(request,id):
-    if request.session.get("visitor") == None:
+    sessionKey = 'article' + id
+    if request.session.get(sessionKey, False):
         clickNumber = 0
     else:
+        request.session[sessionKey] = 1
         clickNumber = 1
     article = Article.objects.get(id=str(id))
     article.times = article.times + clickNumber
     article.save()
-    request.session["visitor"] = "True"
     serializer = ArticleSerializer(article)
     response = JSONResponse(serializer.data)
     response['Access-Control-Allow-Origin'] = '*' #跨域
     return response
-

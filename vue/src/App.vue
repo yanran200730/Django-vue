@@ -42,7 +42,7 @@
             getScrollTop: function(){
                 let self = this;
                 document.addEventListener("scroll",function(){
-                    self.scrollTop= document.body.scrollTop;
+                    self.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
                     (self.scrollTop>800)?(self.scrollShow = true):(self.scrollShow = false);
                     if (!self.flag) {
                         clearInterval(self.timer);
@@ -51,15 +51,20 @@
                 })
             },
             backtop: function(){
-                let speed;
+                let speed,height;
                 let self = this;
 
                 this.timer = setInterval(function(){
-                    speed = Math.ceil(document.body.scrollTop/10);
-                    if (document.body.scrollTop === 0) {
+                    height = document.body.scrollTop || document.documentElement.scrollTop;
+                    speed = Math.ceil(height/10);
+                    if (height === 0) {
                         clearInterval(self.timer);
-                    };
-                    document.body.scrollTop = document.body.scrollTop - speed;
+                    }
+                    if (document.body.scrollTop) {
+                        document.body.scrollTop = document.body.scrollTop - speed;
+                    } else {
+                        document.documentElement.scrollTop =document.documentElement.scrollTop - speed;
+                    }
                     self.flag = true;
                 },20);
                 

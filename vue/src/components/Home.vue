@@ -28,7 +28,7 @@
         },
 		data: function(){
 			return {
-				apiUrl: "http://192.168.1.111:8000/api/article_list",
+				apiUrl: "http://192.168.1.115:8000/api/article_list",
 				article_list: [],
                 loading: false,
                 showDialog: false,

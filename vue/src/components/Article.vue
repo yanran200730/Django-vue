@@ -22,7 +22,7 @@
 
     	data: function(){
     		return {
-    			apiUrl: "http://192.168.1.111:8000/api/blog/",
+    			apiUrl: "http://192.168.1.115:8000/api/blog/",
     			article: "",
                 loading: false,
                 showDialog: false,
